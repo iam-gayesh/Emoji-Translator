@@ -1,13 +1,10 @@
+// models/TranslationRule.js
 const mongoose = require("mongoose");
 
 const TranslationRuleSchema = new mongoose.Schema({
-  pattern: ["string"],
-  templates: ["string"],
+  storyId: mongoose.Schema.Types.ObjectId,
+  translation: String,
+  votes: { type: Number, default: 0 },
 });
 
-const TranslationRule = mongoose.model(
-  "TranslationRule",
-  TranslationRuleSchema
-);
-
-module.exports = TranslationRule;
+module.exports = mongoose.model("TranslationRule", TranslationRuleSchema);

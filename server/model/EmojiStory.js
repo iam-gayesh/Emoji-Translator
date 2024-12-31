@@ -1,14 +1,12 @@
+// models/EmojiStory.js
 const mongoose = require("mongoose");
 
 const EmojiStorySchema = new mongoose.Schema({
-  id: "string",
-  emojiSequence: ["string"],
-  translation: "string",
-  authorNickname: "string",
-  likes: "number",
-  createdAt: "Date",
+  emojiSequence: [String],
+  translation: String,
+  authorNickname: String,
+  likes: { type: Number, default: 0 },
+  createdAt: { type: Date, default: Date.now },
 });
 
-const EmojiStory = mongoose.model("EmojiStory", EmojiStorySchema);
-
-module.exports = EmojiStory;
+module.exports = mongoose.model("EmojiStory", EmojiStorySchema);
